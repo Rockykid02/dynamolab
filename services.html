@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <style>
+        .page {
+  display: none; /* Hide all pages by default */
+  font-family: 'Garamond',;
+            background-color: #f7c5d1;
+            
+}
+
+.page.active {
+  display: block; /* Show the active page */
+}
+u {
+  text-decoration: underline;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size:50px;
+  color:;
+}
+
+ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size:35px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size:40px;
+  color:;
+}
+h3{
+    font-size:40px;
+    }
+   button {
+  background-color: white;
+  color:green;
+  font-size:50px;
+  position:;
+	right:0;
+	color:blue;
+	   }
+	   
+      
+    
+        </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const pages = document.querySelectorAll('.page');
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const prevButtons = document.querySelectorAll('.prev-btn');
+    let currentPage = 0;
+
+    nextButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        currentPage++;
+        updatePage();
+      });
+    });
+
+    prevButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        currentPage--;
+        updatePage();
+      });
+    });
+
+    function updatePage() {
+      pages.forEach((page, index) => {
+        page.classList.remove('active');
+        if (index === currentPage) {
+          page.classList.add('active');
+        }
+      });
+    }
+  });
+    </script>
+</head>
+<body>
+    <!-- Page 1 -->
+<section id="page-1" class="page active">
+  <h3>Service 1</h3>
+<h2><u>What is Cyber Crime?</u></h2>
+<p>Cyber Crime is just like regular crime, but it exists on the Internet. Here are some examples of Cyber Crime:</p>
+<ul>
+  <li>Identity Theft</li>
+  <li>Online Predators</li>
+  <li>BEC ("Business Email Compromise")</li>
+  <li>Ransomware</li>
+  <li>Stealing of sensitive intellectual property</li>
+</ul>
+
+<h2><u>Increasing Crime</u></h2>
+<p><b>Cyber Crime has been increasing regularly every year. Why is Cyber Crime on the rise? Here are some reasons:</b></p>
+<ul>
+  <li>Cyber Crime is easy to accomplish</li>
+  <li>Low risks of getting caught</li>
+  <li>For little work, there is often high returns</li>
+  <li>Attackers can target thousands of victims</li>
+  <li>Money laundering is easier with Cryptocurrencies</li>
+</ul>
+
+<h2><u>Challenges</u></h2>
+<p><b>Challenges like identity theft can have significant consequences on an individual, causing not only the potential of financial losses but also a lot of personal grief. The Internet offers many services to facilitate money laundering, usually making it a trivial process.</b></p>
+
+<h2><u>Cyber Criminals</u></h2>
+<p>Cyber Criminals can be anyone, but let us discuss some common ones we see in the media all the time:</p>
+<ul>
+  <li>State-sponsored groups targeting organizations in other countries</li>
+  <li>Hacking Groups out to target companies to make them pay ransom</li>
+  <li>Kids in their rooms doing illegal hacking</li>
+</ul>
+
+<h2><u>Catching Cyber Criminals</u></h2>
+<p>Cyber Criminals can stay anonymous with trivial means and typically easy to avoid getting caught. When attackers do get caught, it is often because of mistakes made by the attackers themselves, for example, as a result of becoming complacent. There is also a great deal of potential for law-enforcement to use caught cyber criminals to rat out others in the industry.</p><br>
+
+  <button class="next-btn">Next</button>
+</section>
+
+<!-- Page 2 -->
+<section id="page-2" class="page">
+  <h3>Service 2</h3>
+  <h2><u>Driven by Money</u></h2>
+<p>There are a few key threats organizations face frequently:</p>
+<ul>
+  <li>Ransomware: files and systems are encrypted with attackers' keys and they demand payment to restore access.</li>
+  <li>Cryptocurrency miners: systems are infected with a low-profile cryptocurrency mining tool that uses CPU power to generate cryptocurrency for the attackers.</li>
+  <li>BEC ("Business Email Compromise"): users' emails are compromised, allowing attackers to intercept communications and redirect payments to their own accounts.</li>
+</ul>
+
+<h2><u>Value and Power</u></h2>
+<p>There is value and power in many things related to IT, including:</p>
+<ul>
+  <li>Bandwidth: can be used to launch DDOS attacks against businesses.</li>
+  <li>Hacked systems: may contain sensitive information worth money, such as business proprietary information, online gaming assets, or sensitive photographs.</li>
+  <li>Browser hijacking: attackers can install malware in browsers to hijack online banking sessions.</li>
+</ul>
+
+<h2><u>Threatening for Money</u></h2>
+<p>Cyber criminals often use extortion to make money by holding individuals hostage based on information they have on them. A common scenario is:</p>
+<ul>
+  <li>Online romance scams: scammers trick victims into sharing personal information and compromising material, then demand payment in exchange for not releasing the material to others.</li>
+</ul>
+
+<p>Stories like these are far from uncommon, and there are countless opportunities for criminals to benefit from victims using the Internet without knowing the risks associated.</p>
+<h2><u>The Dark Web</u></h2>
+<p>The Dark Web (also called The Dark Net) is a network within the Internet that is only accessible using certain software and protocols.</p>
+<p>It has many names, such as <i>Tor Network</i> or <i>Onion Router</i>. Anyone can access the Dark Web by downloading software like the <a href="(link unavailable)">Tor Browser</a>.</p>
+<p>The Tor Browser is similar to other browsers like Google Chrome or Microsoft Edge, but it can access special website addresses ending in <i>.onion</i> instead of <i>.com</i>. Traffic sent through the Tor Browser is automatically anonymized and encrypted via many different hosts.</p>
+<h2><u>Accessing The Dark Web</u></h2>
+<p>You can access many interesting websites through the Tor Browser, including some that co-exist on the regular Internet.</p>
+<ul>
+  <li><a href="(link unavailable)">Facebook</a></li>
+  <li><a href="(link unavailable)">DuckDuckGo Search Engine</a></li>
+  <li><a href="(link unavailable)">The American CIA ("Central Intelligence Agency")</a></li>
+  <li><a href="(link unavailable)">The Hidden Wiki</a></li>
+</ul>
+<p>Note: Please be cautious when navigating the Dark Net. The links above will only work when using the appropriate software.</p><br>
+  <button class="prev-btn">Previous</button>
+  <button class="next-btn">Next</button>
+</section>
+
+<!-- Page 3 -->
+<section id="page-3" class="page">
+  <h2>Service 3</h2>
+  <p>Dont worry this website is still under maintenance more info will be updated soon by Sage Dickson.</p>
+    <button class="prev-btn">Previous</button>
+  <button class="next-btn">Next</button>
+</section>
+ 
+</section>
+
+<!-- Add more pages as needed -->
+
+</body>
+</html>
