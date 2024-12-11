@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: grey;
+  background-image: url(me.jpg);
+  font-size: 16px; /* normalized font size */
+  size:10px;
+}
+
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1em;
+  font-size: 1.5em; /* relative to body font size */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  font-size: 1em; /* relative to body font size */
+}
+
+h, h2, h3 {
+  color: #333;
+  font-size: 2em; /* relative to main font size */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+footer {
+  background-color: red;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  font-size: 1em; /* relative to body font size */
+}
+
+nav ul {
+  display: none;
+}
+
+nav ul.show {
+  display: block;
+}
+
+.nav-icon {
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  margin: 2em;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1em; /* relative to main font size */
+}
+
+.service i {
+  font-size: 1.5em; /* relative to service font size */
+  color: #3498db;
+}
+
+.service h3 {
+  font-weight: bold;
+  margin-top: 0;
+  font-size: 1.5em; /* relative to service font size */
+}
+
+p {
+  margin-bottom: 2em;
+  font-size: 1em; /* relative to body font size */
+  color: #333;
+}
+
+#about {
+  background-color: #0097A7;
+  padding: 2em;
+ 
+  font-size:23px;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  margin: 2em;
+  text-align: center;
+}
+
+.team-member img {
+  width: 400px;
+  height: 400px;
+  border-radius: 100%;
+  margin-bottom: 1em;
+}
+
+.mission-values {
+  background-color: #fff;
+  padding: 2em;
+  margin-top: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1em; /* relative to body font size */
+}
+#mission p{
+    color:black;
+}
+
+#portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  margin: 20px;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Contact page styles */
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:
+  font-size: 1em; /* relative to body font size */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  margin-bottom: 20px;
+  font-size: 1em; /* relative to contact font size */
+  color: #FFFCFC;
+}
+
+input, textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1em; /* relative to contact font size */
+}
+
+input[type="submit"] {
+  background-color: white;
+  color:green;
+  size:20px;
