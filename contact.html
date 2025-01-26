@@ -2,36 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page title</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Sage Dickson</title>
+    <style>
+        /* General Styles */
+        body {
+            background-image: url('img/c.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+        }
+        label {
+            font-size: 18px;
+            color: white;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 30px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: white;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .social-icons a img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        .social-icons a img:hover {
+            transform: scale(1.2);
+        }
+    </style>
 </head>
-<style>
-    body{
-        background-image:url(img/c.jpg);
-        font-size:20px;        
-    }
-    label{
-    font-size:40px;
-    color:yellow;        
-    }    
-    h2{
-        color:white;
-    }
-</style>
 <body>
-    		<section id="contact">
-	<h2>Get in Touch with SAGE DICKSON</h2>
-	<form
-	action="contact.php" method="post">
-		<label for="name">Name:</label>
-		<input type="text" id="name" name=" Name"><br><br>
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email"><br><br>q
-		<label for="message">Message:</label>
-		<textarea id="message" name="message"></textarea><br><br>
-		<input type="submit" value="Send">
-	</form>
-</section>
+    <section id="contact">
+        <h2>Get in Touch with SAGE DICKSON</h2>
+        
+        <h2>Contact Me on WhatsApp</h2>
+        <div class="social-icons">
+            <a href="https://wa.me/+263780597802" target="_blank" title="WhatsApp">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+            </a>
+        </div>
+        <div class="footer">
+            Powered by <b>Sage Dickson</b> &copy; 2024 - <script>document.write(new Date().getFullYear())</script>
+        </div>
+    </section>
 </body>
-</html>
+		    </html>
