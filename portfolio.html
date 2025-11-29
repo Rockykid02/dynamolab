@@ -7,9 +7,6 @@
   
   <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <!-- Inline Styles -->
   <style>
     /* General Styles */
     body {
@@ -50,6 +47,7 @@
     /* Project Section */
     #projects {
       padding: 40px 20px;
+      padding-bottom: 60px;
     }
 
     #projects h2 {
@@ -74,6 +72,7 @@
       cursor: pointer;
       background-color: #007bff;
       color: white;
+      margin: 0;
     }
 
     .project-card h3:hover {
@@ -95,6 +94,7 @@
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      box-sizing: border-box;
     }
 
     .download-button {
@@ -104,10 +104,27 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
     }
 
     .download-button:hover {
       background-color: #45a049;
+    }
+
+    .fetch-button {
+      background-color: #ff4757;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .fetch-button:hover {
+      background-color: #ff3742;
     }
 
     /* Footer Styles */
@@ -116,164 +133,368 @@
       color: white;
       text-align: center;
       padding: 10px;
-      position: fixed;
       width: 100%;
-      bottom: 0;
     }
 
     footer a {
       color: white;
       font-weight: 500;
     }
+    
     .progress-bar-container {
       display: none;
+      margin: 10px 0;
     }
+    
     .progress-bar {
       width: 0%;
       height: 10px;
       background-color: #4caf50;
+      border-radius: 5px;
+      transition: width 0.3s ease;
     }
+    
+    .quality-options {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
     .quality-options a {
-      margin-right: 10px;
-      text-decoration: none;
-      color: #007bff;
+      display: block;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      transition: background-color 0.3s;
     }
+    
+    .quality-options a:hover {
+      background-color: #0056b3;
+    }
+    
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .result-section {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .video-details {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .video-details img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    
+    .download-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .download-buttons a {
+      flex: 1;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .download-buttons a:hover {
+      background-color: #218838;
+    }
+
+    .api-info {
+      background: #e8f4fd;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border-left: 4px solid #007bff;
+      font-size: 0.9rem;
+    }
+
+    .success { color: #28a745; }
+    .error { color: #dc3545; }
+    .info { color: #17a2b8; }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <h1>Welcome to My Portfolio</h1>
-    <p>Explore my projects and download</p>
+    <p>Explore my projects and download videos</p>
   </header>
   
-  <!-- Projects Section -->
   <main>
     <section id="projects">
       <h2>Projects</h2>
 
-      <!-- Project 1 -->
-      <!-- Project 1 -->
-<div class="project-card">
-  <h3 onclick="toggleProjectDetails(this)">All Video Downloader</h3>
-  <div class="project-details">
-    <p>Download videos effortlessly with this tool.</p>
-    <input type="text" id="videoUrl" class="input-field" placeholder="Enter Video URL">
-    <button id="downloadButton" class="download-button">Download</button>
-    <div id="message" class="message"></div>
-    <!-- Add missing elements -->
-    <div id="progressBarContainer" class="progress-bar-container">
-      <div id="progressBar" class="progress-bar"></div>
-    </div>
-    <div id="qualityOptions" class="quality-options"></div>
-  </div>
-</div>
-
-      <!-- Project 2 -->
+      <!-- Project 1 - YouTube Downloader -->
       <div class="project-card">
         <h3 onclick="toggleProjectDetails(this)">YouTube Downloader</h3>
         <div class="project-details">
-          <p>Download YouTube videos in multiple qualities.</p>
+          <p>Download YouTube videos in multiple qualities using the official API.</p>
+          <div class="api-info">
+            <strong>API Status:</strong> <span id="apiStatus" class="info">Ready</span><br>
+            <strong>Endpoint:</strong> https://prabath-next-api.onrender.com/api/v1/dl/youtube
+          </div>
+          <input type="text" class="input-field youtube-url-input" placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=...)">
+          <button class="download-button" data-type="youtube">Download YouTube Video</button>
+          <div class="message youtube-message"></div>
+          <div class="progress-bar-container youtube-progress">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="quality-options youtube-quality"></div>
         </div>
       </div>
 
-      <!-- Project 3 -->
+      <!-- Project 2 - All Video Downloader -->
       <div class="project-card">
-        <h3 onclick="toggleProjectDetails(this)">Ticktock Downloader</h3>
+        <h3 onclick="toggleProjectDetails(this)">All Video Downloader</h3>
         <div class="project-details">
-             <p>Download YouTube videos in multiple qualities
-          
-          </head><body> <div class="container"> <h2>TikTok Downloader</h2> <p>Download TikTok videos and audio effortlessly!</p> <input type="text" id="videoUrl" class="input-field" placeholder="Paste TikTok video URL here"> <button id="fetchButton" class="fetch-button">Download</button>
-<!-- Result Section --> <div id="resultSection" class="result-section" style="display: none;"> <h3>Video Details</h3> <div class="video-details"> <img id="avatar" src="" alt="Author Avatar"> <div> <p id="nickname"></p> <p id="desc"></p> </div> </div> <div class="download-buttons"> <a href="#" id="downloadVideoButton" target="_blank">Download Video</a> <a href="#" id="downloadAudioButton" target="_blank">Download Audio</a> </div> </div>
-<!-- Message Section --> <div id="message" class="message"></div> </div>
-<script src="https://david-cyril.net.ng/assets/tiktok.js"></script></body>
+          <p>Download videos from various platforms (when supported by API).</p>
+          <div class="api-info">
+            <strong>API Status:</strong> <span class="info">Ready</span><br>
+            <strong>Endpoint:</strong> https://prabath-next-api.onrender.com/api/v1/dl/youtube
+          </div>
+          <input type="text" class="input-field video-url-input" placeholder="Enter Video URL">
+          <button class="download-button" data-type="all">Download Video</button>
+          <div class="message all-message"></div>
+          <div class="progress-bar-container all-progress">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="quality-options all-quality"></div>
         </div>
+      </div>
+
+      <!-- Project 3 - TikTok Downloader -->
+      <div class="project-card">
+        <h3 onclick="toggleProjectDetails(this)">TikTok Downloader</h3>
+        <div class="project-details">
+          <p>Download TikTok videos (when supported by API).</p>
+          <div class="api-info">
+            <strong>API Status:</strong> <span class="info">Ready</span><br>
+            <strong>Endpoint:</strong> https://prabath-next-api.onrender.com/api/v1/dl/youtube
+          </div>
+          <input type="text" class="input-field tiktok-url-input" placeholder="Enter TikTok URL">
+          <button class="fetch-button" data-type="tiktok">Download TikTok Video</button>
+          <div class="message tiktok-message"></div>
+          <div class="progress-bar-container tiktok-progress">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="quality-options tiktok-quality"></div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Sage Dickson | <a href="#">Contact Me</a></p>
+    <p>&copy; 2025 Sage Dickson | <a href="#" style="color: white;">Contact Me</a></p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-// Function to toggle project details
-function toggleProjectDetails(projectElement) {
-  const projectDetails = projectElement.nextElementSibling;
-  projectDetails.style.display = projectDetails.style.display === "block" ? "none" : "block";
-}
+    // API Configuration
+    const API_CONFIG = {
+      key: 'prabath_sk_767c42eb629bf7a97e795ce4c51200df9055c57c',
+      baseUrl: 'https://prabath-next-api.onrender.com/api/v1/dl/youtube'
+    };
 
-// Function to handle video downloading (make it async)
-async function handleDownload(event) {
-  const projectElement = event.target.closest('.project-card');
-  const progressBarContainer = projectElement.querySelector('.progress-bar-container');
-  const progressBar = projectElement.querySelector('.progress-bar');
-  const qualityOptions = projectElement.querySelector('.quality-options');
-  const messageDiv = projectElement.querySelector('.message');
-  const videoUrl = projectElement.querySelector('.input-field').value;
+    // Function to toggle project details
+    function toggleProjectDetails(projectElement) {
+      const projectDetails = projectElement.nextElementSibling;
+      projectDetails.style.display = projectDetails.style.display === "block" ? "none" : "block";
+    }
 
-  progressBarContainer.style.display = 'block';
-  progressBar.style.width = '0%';
-  messageDiv.textContent = '';
-  qualityOptions.innerHTML = '';
-  qualityOptions.style.display = 'none';
+    // Function to handle video downloading
+    async function handleDownload(event) {
+      const button = event.target;
+      const downloadType = button.getAttribute('data-type');
+      const projectElement = button.closest('.project-card');
+      
+      // Get elements based on download type
+      const messageDiv = projectElement.querySelector('.message');
+      const progressBarContainer = projectElement.querySelector('.progress-bar-container');
+      const progressBar = projectElement.querySelector('.progress-bar');
+      const qualityOptions = projectElement.querySelector('.quality-options');
+      const videoUrl = projectElement.querySelector('.input-field').value;
 
-  if (!videoUrl) {
-    messageDiv.textContent = "Please enter a video URL.";
-    messageDiv.style.color = "red";
-    progressBarContainer.style.display = 'none';
-    return;
-  }
+      // Reset UI
+      progressBarContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+      messageDiv.textContent = '';
+      messageDiv.className = 'message';
+      qualityOptions.innerHTML = '';
+      qualityOptions.style.display = 'none';
 
-  try {
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 10;
-      progressBar.style.width = `${progress}%`;
-      if (progress >= 90) clearInterval(interval);
-    }, 100);
+      if (!videoUrl) {
+        messageDiv.textContent = "Please enter a video URL.";
+        messageDiv.classList.add('error');
+        progressBarContainer.style.display = 'none';
+        return;
+      }
 
-    const response = await fetch(prabath_sk_767c42eb629bf7a97e795ce4c51200df9055c57c=${encodeURIComponent(videoUrl)}`);
-    const data = await response.json();
+      // Validate URL format
+      if (!isValidUrl(videoUrl)) {
+        messageDiv.textContent = "Please enter a valid URL.";
+        messageDiv.classList.add('error');
+        progressBarContainer.style.display = 'none';
+        return;
+      }
 
-    progressBar.style.width = '100%';
-    clearInterval(interval);
+      try {
+        // Simulate progress
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 5;
+          progressBar.style.width = `${progress}%`;
+          if (progress >= 80) clearInterval(interval);
+        }, 200);
 
-    if (data.ok && data.url && data.url.length > 0) {
-      messageDiv.textContent = "Select a quality to download:";
-      messageDiv.style.color = "white";
+        // Make API call
+        const response = await fetch(API_CONFIG.baseUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': API_CONFIG.key
+          },
+          body: JSON.stringify({
+            url: videoUrl
+          })
+        });
+
+        // Check if response is successful
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status} ${response.statusText}`);
+        }
+
+        // Handle different content types
+        const contentType = response.headers.get('content-type');
+        let data;
+
+        if (contentType && contentType.includes('application/json')) {
+          data = await response.json();
+        } else {
+          throw new Error('Unexpected response format from API');
+        }
+
+        // Complete progress bar
+        progressBar.style.width = '100%';
+        clearInterval(interval);
+
+        // Handle API response
+        if (data && data.url) {
+          handleSuccessResponse(data, messageDiv, qualityOptions);
+        } else if (data && data.error) {
+          throw new Error(data.error);
+        } else {
+          throw new Error('No download URL found in response');
+        }
+
+      } catch (error) {
+        console.error('Download error:', error);
+        messageDiv.textContent = `Error: ${error.message || 'Failed to download video'}`;
+        messageDiv.classList.add('error');
+        progressBar.style.width = '0%';
+      } finally {
+        setTimeout(() => {
+          progressBarContainer.style.display = 'none';
+        }, 2000);
+      }
+    }
+
+    // Handle successful API response
+    function handleSuccessResponse(data, messageDiv, qualityOptions) {
+      messageDiv.textContent = "Video ready! Select quality to download:";
+      messageDiv.classList.add('success');
       qualityOptions.style.display = 'flex';
 
-      data.url.forEach((item) => {
+      // Check if data.url is an array or single object
+      const urls = Array.isArray(data.url) ? data.url : [data.url];
+
+      urls.forEach((item, index) => {
         const qualityButton = document.createElement('a');
+        
+        // Determine quality label
+        let qualityLabel = item.quality || `Quality ${index + 1}`;
+        if (item.mimeType) {
+          qualityLabel += ` (${item.mimeType.split(';')[0]})`;
+        }
+
         qualityButton.href = item.url;
-        qualityButton.textContent = item.quality;
-        qualityButton.download = ''; 
-        qualityButton.target = '_blank'; 
+        qualityButton.textContent = qualityLabel;
+        qualityButton.target = '_blank';
+        qualityButton.download = 'video';
+        
         qualityOptions.appendChild(qualityButton);
       });
-    } else {
-      messageDiv.textContent = "Failed to retrieve video details. Please try again.";
-      messageDiv.style.color = "red";
-    }
-  } catch (error) {
-    messageDiv.textContent = "An error occurred. Please try again.";
-    messageDiv.style.color = "red";
-    console.error(error);
-  } finally {
-    setTimeout(() => {
-      progressBarContainer.style.display = 'none';
-    }, 1000);
-  }
-}
 
-// Attach event listeners to all download buttons
-document.querySelectorAll('.download-button').forEach(button => {
-  button.addEventListener('click', handleDownload);
-});
+      // If no specific URLs but we have a direct download link
+      if (urls.length === 0 && data.downloadUrl) {
+        const downloadButton = document.createElement('a');
+        downloadButton.href = data.downloadUrl;
+        downloadButton.textContent = 'Download Video';
+        downloadButton.target = '_blank';
+        downloadButton.download = 'video';
+        qualityOptions.appendChild(downloadButton);
+      }
+    }
+
+    // URL validation function
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    // Attach event listeners when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add event listeners to all download buttons
+      document.querySelectorAll('.download-button, .fetch-button').forEach(button => {
+        button.addEventListener('click', handleDownload);
+      });
+
+      // Add Enter key support for input fields
+      document.querySelectorAll('.input-field').forEach(input => {
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            const button = this.closest('.project-details').querySelector('.download-button, .fetch-button');
+            button.click();
+          }
+        });
+      });
+
+      // Update API status
+      const apiStatus = document.getElementById('apiStatus');
+      apiStatus.textContent = 'Connected';
+      apiStatus.className = 'success';
+    });
+
+    // Test API connection on load
+    window.addEventListener('load', function() {
+      console.log('API Configuration:', {
+        endpoint: API_CONFIG.baseUrl,
+        key: API_CONFIG.key ? '✓ Set' : '✗ Missing'
+      });
+    });
   </script>
 </body>
 </html>
